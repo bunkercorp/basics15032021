@@ -17,7 +17,7 @@ Output: 0+1+2+3+4+5+6 = 21
 Input: -15
 Output: -15 < 0
 
-Input: > 0
+Input: = 0
 Output: 0 = 0
 
 */
@@ -25,6 +25,9 @@ Output: 0 = 0
 public class SequenceSum {
 
     public static String showSequence(int value) {
+
+
+
         return null;
     }
 }

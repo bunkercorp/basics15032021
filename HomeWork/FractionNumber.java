@@ -13,6 +13,7 @@ public class FractionNumber {
                 break;
         }
 
+        reduction = reduction == 0 ? 1 : reduction;
         this.numerator = numerator / reduction;
         this.denominator = denominator / reduction;
     }

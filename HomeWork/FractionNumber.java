@@ -9,8 +9,8 @@ public class FractionNumber {
         denominator = (denominator < 0 ) ? denominator *= -1 : denominator;
 
         for(; reduction > 1; reduction--){
-            double flNumerator = (double)numerator / reduction - (numerator / reduction);
-            double flDenominator = (double)denominator / reduction - (denominator / reduction);
+            final double flNumerator = (double)numerator / reduction - (numerator / reduction);
+            final double flDenominator = (double)denominator / reduction - (denominator / reduction);
 
             if( flNumerator == 0 && flDenominator == 0)
                 break;

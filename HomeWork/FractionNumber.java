@@ -9,7 +9,10 @@ public class FractionNumber {
         denominator = (denominator < 0 ) ? denominator *= -1 : denominator;
 
         for(; reduction > 1; reduction--){
-            if( numerator / reduction != (double)numerator / reduction && denominator / reduction != (double)denominator / reduction))
+            double flNumerator = (double)numerator / reduction - (numerator / reduction);
+            double flDenominator = (double)denominator / reduction - (denominator / reduction);
+
+            if( flNumerator == 0 && flDenominator == 0)
                 break;
         }
         this.numerator = numerator / reduction;

@@ -4,17 +4,15 @@ public class FractionNumber {
     private int denominator;
 
     public FractionNumber(int numerator, int denominator){
-        int reduction = numerator;
         numerator = (numerator < 0 ) ? numerator *= -1 : numerator;
         denominator = (denominator < 0 ) ? denominator *= -1 : denominator;
+        int reduction = (numerator < denominator ) ? numerator : denominator;
 
         for(; reduction > 1; reduction--){
-            final double flNumerator = (double)numerator / reduction - (numerator / reduction);
-            final double flDenominator = (double)denominator / reduction - (denominator / reduction);
-
-            if( flNumerator == 0 && flDenominator == 0)
+            if( numerator % reduction == 0 && denominator % reduction == 0)
                 break;
         }
+
         this.numerator = numerator / reduction;
         this.denominator = denominator / reduction;
     }

@@ -28,7 +28,7 @@ public class FractionNumber {
         else if(numerator < denominator)
             return String.format("%d/%d", numerator, denominator);
         else if(numerator >= denominator)
-            return String.format("%d %d/%d", numerator/denominator, numerator, denominator);
+            return String.format("%d %d/%d", numerator/denominator, numerator%denominator, denominator);
 
         return super.toString();
     }

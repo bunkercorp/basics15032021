@@ -1,9 +1,11 @@
 package main;
 
 class FractionNumber {
+    // private?
     int numerator;
     int denominator;
 
+    // @Override ?
     public String toString(){
         if ( numerator > denominator ) {
             return String.format("%d %d/%d", this.numerator / this.denominator, this.numerator % this.denominator, this.denominator);
@@ -23,7 +25,7 @@ class FractionNumber {
     public FractionNumber(int a, int b){
         numerator = a;
         denominator = b;
-
+        //сдается мне, код метода simplify можно сразу переносить в конструктор, так как оный симплифай более нигде не нужен
         this.simplify();
     }
 
@@ -48,7 +50,13 @@ class FractionNumber {
 
         return lcm;
     }
-
+    // не согласен. По ДЗ, методы не изменяют состояния текущей сущности, они порождают новую. Посему возвращаемый тип должен быть FractionNumber, не void
+    // например
+    /*
+    FractionNumber a = new FractionNumber(1,2);
+    FractionNumber b = new FractionNumber(3, 5);
+    FractionNumber c = a.add(b);
+     */
     public void add(FractionNumber anotherNumber){
         int lcm = lcm(denominator, anotherNumber.denominator);
 

@@ -4,6 +4,7 @@ public class FractionNumber {
     private int denominator;
 
     public FractionNumber(int numerator, int denominator){
+        // не согласен. Инвертировать знак имеет смысл только если отрицательный знаменатель
         numerator = (numerator < 0 ) ? numerator *= -1 : numerator;
         denominator = (denominator < 0 ) ? denominator *= -1 : denominator;
         int reduction = (numerator < denominator ) ? numerator : denominator;
@@ -28,7 +29,7 @@ public class FractionNumber {
             return String.format("%d/%d", numerator, denominator);
         else if(numerator >= denominator)
             return String.format("%d %d/%d", numerator/denominator, numerator%denominator, denominator);
-
+        // а если у последнего else удалить if, то этот ретурн не нужен
         return super.toString();
     }
 

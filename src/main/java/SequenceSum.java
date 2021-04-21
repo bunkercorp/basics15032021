@@ -27,4 +27,16 @@ public class SequenceSum {
     public static String showSequence(int value) {
         return null;
     }
+    public static String Sequence(int value) {
+        if (value < 0)
+            return String.format("%d < 0", value);
+
+        StringBuilder result = new StringBuilder("0");
+        int sum = 0;
+        for (int i = 1; i <= value; sum=i++) {
+            result.append(String.format("+%d", i));
+        }
+        result.append(String.format(" = %d", sum));
+        return result.toString();
+    }
 }

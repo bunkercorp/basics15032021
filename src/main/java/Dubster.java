@@ -25,7 +25,52 @@ Return the words of the initial song that Polycarpus used to make a dubsteb remi
 */
 
 public class Dubster {
-    public static String songDecoder(String song) {
-        return null;
+    public static String songDecoder(String song){
+
+        System.out.println(song);
+        StringBuilder sb = new StringBuilder();
+        int i, j;
+        for(i = 0; i<song.length()-2; i++){
+            System.out.println("pre:" + sb);
+            if(song.substring(i, i+3).equals("WUB")){
+                sb.append(" ");
+                i += 2;
+            }else{
+                sb.append(song.substring(i, i+1));
+            }
+            System.out.println("mod:" + sb);
+        }
+
+        if(i < song.length()) {
+            sb.append(song.substring(i, song.length()));
+        }
+
+        while(sb.substring(0, 1).equals(" ")){
+            sb.delete(0, 1);
+        }
+
+        while(sb.substring(sb.length()-1, sb.length()).equals(" ")){
+            sb.delete(sb.length()-1, sb.length());
+        }
+
+        i = 0; j = 0;
+        while(i < sb.length()){
+            if(sb.charAt(i) != ' '){
+                i++;
+            }else{
+                j = i + 1;
+                while(j < sb.length()){
+                    if(sb.charAt(j) == ' '){
+                        j++;
+                    }else{
+                        sb.replace(i, j, " ");
+                        i++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return sb.toString();
     }
 }

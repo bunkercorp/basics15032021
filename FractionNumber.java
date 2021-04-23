@@ -1,12 +1,15 @@
 public class FractionNumber {
+    //внутренний класс здесь вообще лишен смысла, все должно было быть описано в самом FractionNumber
     static class Fraction {
 
+        // private либо public final?
         int numerator;
         int denominator;
 
         public Fraction(int numr, int denr) {
             numerator = numr;
             denominator = denr;
+          //код сокращения дроби можно было сразу в конструктор переместить, метод reduce только тут и используется
             reduce();
         }
 
@@ -14,6 +17,7 @@ public class FractionNumber {
             return numerator;
         }
 
+        // вот тут не согласен. сеттеры полям этого класса не нужны, так как задача его экземпляров - просто хранить дробь как результат мат. операции
         public void setNumerator(int numerator) {
             this.numerator = numerator;
         }
@@ -25,7 +29,7 @@ public class FractionNumber {
         public void setDenominator(int denominator) {
             this.denominator = denominator;
         }
-
+        //ты уверен ,что служебный метод нужно показывать наружу?
         public int calculateGCD(int numerator, int denominator) {
             if (numerator % denominator == 0) {
                 return denominator;
@@ -39,6 +43,7 @@ public class FractionNumber {
             denominator /= gcd;
         }
 
+        //а вот заказанные методы нужно показывать наружу
         Fraction add(Fraction fractionTwo) {
             int numer = (numerator * fractionTwo.getDenominator()) +
                     (fractionTwo.getNumerator() * denominator);
@@ -67,7 +72,7 @@ public class FractionNumber {
             Fraction result = new Fraction(newNumerator, newDenominator);
             return result;
         }
-
+        //по ДЗ заказаны различные форматы строки для различных ситуаций
         @Override
         public String toString() {
             return this.numerator + "/" + this.denominator;

@@ -16,6 +16,28 @@ Note that the Java version expects a return value of null for an empty string or
 */
 public class JadenCase {
   public static String toJadenCase(String phrase) {
-        return null;
+      if(phrase == null || phrase.isEmpty()) {
+          return null;
+      }
+
+      StringBuilder text = new StringBuilder(phrase);
+
+      if (Character.isAlphabetic(text.charAt(0))) {
+          text.setCharAt(0, Character.toUpperCase(text.charAt(0)));
+      }
+
+      for (int i = 1; i < text.length(); i++) {
+          final char letter = text.charAt(i);
+          final char prevLetter = text.charAt(i - 1);
+          final boolean needReplace = Character.isAlphabetic(letter) && Character.isLowerCase(letter)
+                  && !Character.isLetterOrDigit(prevLetter)
+                  && prevLetter != '_' && prevLetter != '-' && prevLetter != '`';
+
+          if (needReplace){
+              text.setCharAt(i, Character.toUpperCase(letter));
+          }
+      }
+
+      return text.toString();
     }
 }

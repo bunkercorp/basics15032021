@@ -33,6 +33,7 @@ public class SequenceSum {
 
         for(int i=0;;i++){
             summaValue += i;
+           // уверен, что можно обойтись без этого ветвления в цикле
             if(i == value)
                 return resultString.append(i).append(" = ").append(summaValue).toString();
             else

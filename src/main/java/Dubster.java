@@ -42,6 +42,7 @@ public class Dubster {
                     resultSong.replace(temp,temp+3," ");
 
                 }
+                //мне тут идея подсказывает что temp-1 > 0 ? temp - 1 : 0 это Math.max(temp - 1, 0)
                 indexStart = temp-1 > 0 ? temp - 1 : 0;
             }
         }

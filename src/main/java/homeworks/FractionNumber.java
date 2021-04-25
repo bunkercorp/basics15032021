@@ -1,4 +1,4 @@
-package main;
+package homeworks;
 
 class FractionNumber {
     int numerator;

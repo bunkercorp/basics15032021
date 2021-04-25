@@ -1,4 +1,4 @@
-package main.homeworks;
+package homeworks;
 
 public class Dubster {
     public static String SongDecoder (String song){

@@ -25,6 +25,18 @@ Output: 0 = 0
 public class SequenceSum {
 
     public static String showSequence(int value) {
-        return null;
+        if(value < 0 || value == 0)
+            return value < 0 ? String.format("%d < 0",value) : "0 = 0";
+
+        StringBuilder resultString = new StringBuilder("");
+        int summaValue = 0;
+
+        for(int i=0;;i++){
+            summaValue += i;
+            if(i == value)
+                return resultString.append(i).append(" = ").append(summaValue).toString();
+            else
+                resultString.append(i).append("+");
+        }
     }
 }

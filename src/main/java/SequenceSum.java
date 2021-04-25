@@ -32,13 +32,17 @@ public class SequenceSum {
         int count = 0;
         String s = "";
 
-        if (value < 0) return s = buffer.append(value).toString() + " < 0";
+        if (value < 0)
+            //return buffer.append(value).append(" < 0").toString();
+            return s = buffer.append(value).toString() + " < 0";
         else if (value == 0) return "0 = 0";
 
         for (int i = 0; i <= value; i++) {
             count += i;
             s = buffer.append("+").append(i).toString();
 
-        } return s = buffer.deleteCharAt(0).toString() + " = " + count;
+        }
+        // return buffer.deleteCharAt(0).append(" = ").append(count).toString();
+        return s = buffer.deleteCharAt(0).toString() + " = " + count;
     }
 }

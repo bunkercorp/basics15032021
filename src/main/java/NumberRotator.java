@@ -22,11 +22,11 @@ max_rot(56789) should return 68957
 
 public class NumberRotator {
 
-    public static long rotate( long n) {
-        if ( n < 0 ) {
+    public static long rotate(long n) {
+        if (n < 0) {
             return n;
         }
-        if ( n == 0 ) {
+        if (n == 0) {
             return 0;
         }
         String num = String.valueOf(n);
@@ -34,12 +34,13 @@ public class NumberRotator {
             num = num.substring(0, i) +
                     num.substring(i + 1) +
                     num.charAt(i);
-
+//вычисление Long.parseLong(num) выполняется дважды с одинаковым значением num
+//final long currN = Long.parseLong(num); if(currN > n) n = currN;
             if (Long.parseLong(num) > n) {
                 n = Long.parseLong(num);
             }
         }
         return n;
     }
-    }
+}
 

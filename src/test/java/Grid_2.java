@@ -22,11 +22,10 @@ public class Grid_2 {
     @BeforeTest
 
     public void setup() throws MalformedURLException {
-        // DesiredCapabilities capability = DesiredCapabilities.firefox();
-        //capability.setBrowserName("firefox");
-        //   capability.setPlatform(Platform.WIN10);
-        // driver = new RemoteWebDriver(new URL(nodeUrl), capability);
+        System.out.println(System.getenv("CI_RUN"));
+
         final boolean isCiRun = System.getenv("CI_RUN") != null;
+        System.out.println(isCiRun);
         final String browserRequested = System.getProperty("browser");
         if (isCiRun) {
             DesiredCapabilities capability;
@@ -38,11 +37,11 @@ public class Grid_2 {
             driver = new RemoteWebDriver(new URL(nodeUrl), capability);
         } else {
             if (browserRequested.contentEquals("firefox")) {
-                System.setProperty("webdriver.gecko.driver","C:\\Applications\\geckodriver\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver","D:\\Applications\\geckodriver\\geckodriver.exe");
                 driver = new FirefoxDriver();
 
             } else {
-                System.setProperty("webdriver.chrome.driver","C:\\Applications\\chromedriver\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver","D:\\Applications\\chromedriver\\chromedriver.exe");
                 driver  = new ChromeDriver();
 
             }

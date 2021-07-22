@@ -15,7 +15,10 @@ public class test {
     String baseURL, nodeURL;
 
     @BeforeTest
+
     public void setup() throws MalformedURLException {
+        System.out.println(System.getenv("CI_RUN"));
+        System.exit(0);
         baseURL = "https://jira.ithillel.com/browse/AQ-181";
         nodeURL = "http://10.0.0.69:4444/wd/hub";
         DesiredCapabilities capability = DesiredCapabilities.firefox();
